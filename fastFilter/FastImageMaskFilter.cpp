@@ -1,7 +1,7 @@
 /***************************************************************
 	>类名：邻域（模板）运算
 	>作者：李维鹏
-	>联系方式：williamli_pro@163.com
+	>联系方式：248636779@163.com
 	>实现图像的行列对称模板与非对称模板运算
 	>技术要点：
 	>1.模板分析
@@ -2276,17 +2276,39 @@ template<typename T_p1,typename T_p2,typename T_p3> void colDivideFilter(const u
 }
 
 
+inline bool exists_test(const std::string& name) {
+	if (FILE* file = fopen(name.c_str(), "r")) {
+		fclose(file);
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+
 //快速滤波测试程序
-bool fastImageFilterTest()
+bool fastImageFilterTest(const char* image_path)
 {
 	//1.输入图像
 	cv::Mat image_in;
-	if(_waccess(L"test images/Lena.jpg",0)==0)
-		image_in=cv::imread("test images/Lena.jpg");
-	else if(_waccess(L"../test images/Lena.jpg",0)==0)
-		image_in=cv::imread("../test images/Lena.jpg");
+	string im_path = image_path;
+	if(exists_test(im_path))
+		image_in=cv::imread(im_path);
 	else
-		image_in=cv::imread("../../test images/Lena.jpg");
+	{
+		im_path = string("../") + im_path;
+		if (exists_test(im_path))
+			image_in = cv::imread(im_path);
+		else
+		{
+			im_path = string("../") + im_path;
+			if (exists_test(im_path))
+				image_in = cv::imread(im_path);
+			else
+				throw exception(("The file: "+ im_path + "does not exist \n").c_str());
+		}
+	}
 
 	cv::imshow("原图",image_in);
 	cv::waitKey(400);

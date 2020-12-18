@@ -1,18 +1,12 @@
 /***************************************************************
-* Copyright 2020 FastFilter Authors.
-* williamli_pro@163.com
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*     http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
+	>名称：测试主程序
+	>作者：李维鹏
+	>联系方式：248636779@163.com
+	>测试滤波核生成、核分解、快速滤波等程序
+	>要点：
+	>1.滤波核生成
+	>2.核分解
+	>3.快速滤波等程序
 
 ****************************************************************/
 
@@ -21,5 +15,6 @@
 
 void main()
 {
-	bool re=fastImageFilterTest();
+	string img_path = "test images/Lena.jpg";	//change into your image here
+	bool re=fastImageFilterTest(img_path.c_str());
 }

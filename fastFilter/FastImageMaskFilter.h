@@ -1,7 +1,7 @@
 /***************************************************************
 	>类名：邻域（模板）运算
 	>作者：李维鹏
-	>联系方式：williamli_pro@163.com
+	>联系方式：248636779@163.com
 	>实现图像的行列对称模板与非对称模板运算
 	>技术要点：
 	>1.滤波模板分析(见filterAnalysis.h)
@@ -125,4 +125,4 @@ bool tDmaskImageFiltering(cv::Mat& image_in,cv::Mat& filter_mask,const string da
 bool vectorMaskImageFiltering(cv::Mat& image_in,Vector_Mask& x_filter,Vector_Mask& y_filter,Int_Mask_Divide& int_mask,const string data_type,cv::Mat& image_out);
 
 /*	快速滤波测试程序	*/
-bool fastImageFilterTest();
+bool fastImageFilterTest(const char* image_path);
