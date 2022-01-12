@@ -22,7 +22,7 @@ Next version will be accelerated by L1 cache optimization and AVX256 instruction
 有损快速滤波
 =======================================
 
-三年前的小工作  
+2017年前小工作  
 
 1. 对滤波核进行常数+低秩分解，对展开后的每个一维滤波器进一步泰勒展开  
 2. 使用积分图加速泰勒展开后的滤波过程  
